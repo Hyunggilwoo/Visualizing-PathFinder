@@ -7,8 +7,9 @@ import _ from "lodash";
 import startPic from '../Images/start.png'
 import endPic from '../Images/end.png'
 import drawGif from '../Images/drawGif.gif'
-const rowLen = 15;
-const colLen = 45;
+
+const rowLen = 20;
+const colLen = 60;
 export default class PathfindingVisualizer extends Component {
     constructor(props) {
         super(props);
@@ -254,6 +255,7 @@ export default class PathfindingVisualizer extends Component {
 
         }
     }
+
     primsAlgorithms() {
         if (!this.state.findingPath && !this.state.makingMaze) {
             this.updateMaze(true);
@@ -292,6 +294,7 @@ export default class PathfindingVisualizer extends Component {
             anim();
         }
     }
+
     horizontalMaze() {
         if (!this.state.findingPath && !this.state.makingMaze) {
             this.updateMaze(true);
@@ -319,6 +322,7 @@ export default class PathfindingVisualizer extends Component {
 
         }
     }
+
     astar() {
         if (!this.state.findingPath && !this.state.makingMaze) {
             this.clearVisited(this.state.startNode, this.state.endNode);
@@ -355,6 +359,7 @@ export default class PathfindingVisualizer extends Component {
 
         }
     }
+
     dijkstra() {
         if (!this.state.findingPath && !this.state.makingMaze) {
             this.clearVisited(this.state.startNode, this.state.endNode);

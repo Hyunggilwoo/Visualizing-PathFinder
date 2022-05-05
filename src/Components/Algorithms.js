@@ -1,4 +1,14 @@
 import _ from "lodash";
+
+/**
+ * This method implements the dijkstra's algorithm.
+ *
+ * @param start
+ * @param end
+ * @param grid
+ * @param animate
+ * @returns {*[]|[]|*}
+ */
 export const dijkstra = (start, end, grid, animate) => {
     var visited = [];
     const unvistited = [];
@@ -14,6 +24,17 @@ export const dijkstra = (start, end, grid, animate) => {
     return dijkstraHelper(start, end, visited, unvistited, grid, animate);
 
 }
+
+/**
+ *
+ * @param cur
+ * @param end
+ * @param visited
+ * @param unvistited
+ * @param grid
+ * @param animate
+ * @returns {*[]|[]|*}
+ */
 function dijkstraHelper(cur, end, visited, unvistited, grid, animate) {
     var curRow = cur[0];
     var curCol = cur[1];
@@ -109,6 +130,7 @@ export const astar = (start, end, grid, animate) => {
     return astarHelper(start, end, visited, unvistited, grid, animate);
 
 }
+
 function astarHelper(cur, end, visited, unvistited, grid, animate) {
     var curRow = cur[0];
     var curCol = cur[1];
@@ -200,6 +222,7 @@ function astarHelper(cur, end, visited, unvistited, grid, animate) {
         return astarHelper([unvistited[0][0].row, unvistited[0][0].col], end, visited, unvistited, grid, animate);
     }
 }
+
 export const verticalMaze = (start, end, grid, animate) => {
     for (let i = 0; i < grid.length; i++) {
         animate.push([i, 0]);
@@ -223,6 +246,7 @@ export const verticalMaze = (start, end, grid, animate) => {
 
     }
 }
+
 export const horizontalMaze = (start, end, grid, animate) => {
     for (let i = 0; i < grid.length; i++) {
         animate.push([i, 0]);
@@ -244,6 +268,7 @@ export const horizontalMaze = (start, end, grid, animate) => {
 
     }
 }
+
 export const primsAlgorithms = (grid, animate) => {
     var wall = [];
     var pillar = [];
@@ -353,6 +378,7 @@ export const primsAlgorithms = (grid, animate) => {
 function randomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
+
 function arrContains(arr, array) {
     for (let i = 0; i < arr.length; i++) {
         if (arr[i][0] == array[0] && arr[i][1] == array[1]) {
@@ -361,6 +387,7 @@ function arrContains(arr, array) {
     }
     return false;
 }
+
 function getIndex(arr, array) {
     for (let i = 0; i < arr.length; i++) {
         if (arr[i][0] == array[0] && arr[i][1] == array[1]) {
@@ -369,6 +396,7 @@ function getIndex(arr, array) {
     }
     return -1;
 }
+
 function distancetoEnd(cur,end){
     return (Math.sqrt((end[0]-cur[0])**2+(end[1]-cur[1])**2))*10;
 }
